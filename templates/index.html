@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Webpage</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        button {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Email Spam Classifier</h1>
+    <!-- We are making the post request to the predict route -->
+    <form action="/predict", method="post">
+
+        <textarea name="content", id="", placeholder="Enter your email body", rows = "12", cols = "60">{{ email }}
+        </textarea>
+
+        <div><button>Check Spam</button></div>
+        <a href="/"> Reset </a>
+    </form>
+
+    {% if prediction == 1 %}
+        <h2 style="color: red;" >Spam</h2>
+    {% elif prediction == -1 %}
+        <h2 style="color: green;">Not Spam</h2>
+    {% endif %}
+
+    <h2>{{ prediction }}</h2>
+
+</body>
+
+</html>
