@@ -11,7 +11,9 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
   
-# Making a POST request to predict route
+  
+# Making a POST request to predict route:
+
 @app.route("/predict", methods = ["POST"])
 def predict():
     # Get email-content from form and store it in the email_text variable
@@ -25,8 +27,6 @@ def predict():
     
     # If the tokenized email is spam, predict as 1 else predict as -1:
     prediction = 1 if prediction == 1 else -1
-    
-    
     
     return render_template("index.html", prediction = prediction, email_text = email) 
   
